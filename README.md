@@ -4,8 +4,12 @@ Requirements met:
 🎯 Enable users to create posts associated with their Clerk userId. Posts should be displayed on the user’s profile page.
 
 Requirements not met:
-🎯 Create and display an error page if the user visits a user profile that doesn’t exist.
+🎯 Create and display an error page if the user visits a user profile that doesn’t exist
+ - To do this I would create a page to display a 404 error message
+ - Conditionally render the page using an if statement inside the profile page export function. 
+
 🎯 Use 1 or more Radix UI Primitive or something similar (e.g. use of another library to enhance UX).
+- I didn't tackle these requirements in time, as I got stuck integrating clerk and user's id for creating posts.
 
 Challenges I faced:
 
