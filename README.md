@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Requirements met:
+🎯 Set up user sign-up and user login using Clerk.
+🎯 Enable users to create a user profile, and input profile information (such as a user biography) using a form. Users and user information should be stored in their own table in the database and handled with an appropriate route (e.g. /user/[userId]).
+🎯 Enable users to create posts associated with their Clerk userId. Posts should be displayed on the user’s profile page.
 
-## Getting Started
+Requirements not met:
+🎯 Create and display an error page if the user visits a user profile that doesn’t exist.
+🎯 Use 1 or more Radix UI Primitive or something similar (e.g. use of another library to enhance UX).
 
-First, run the development server:
+Challenges I faced:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Using props to pass around arguments and server actions.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Separating client and server components was difficult as postForm.jsx uses a server action to submit posts. I used props to pass the server action to the client component: https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#client-components.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Passing the id from the dynamic route for posts into the server action using hidden input fields. https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations. Important to note that this method should not be used for passing user sensitive information (e.g. user_id).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Obtaining the clerk id for a server action. https://clerk.com/docs/references/nextjs/server-actions.
